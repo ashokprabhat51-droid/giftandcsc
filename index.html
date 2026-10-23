@@ -1,0 +1,1752 @@
+ANKIT CSC CENTER - Complete Single Page Website
+// All-in-one index.php with HTML, CSS, JavaScript
+// ============================================================
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit CSC Center | Digital Seva Kendra | à¤œà¤¨ à¤¸à¥‡à¤µà¤¾ à¤•à¥‡à¤¨à¥à¤¦à¥à¤°</title>
+    <meta name="description" content="Ankit CSC Center - à¤†à¤§à¤¾à¤° à¤•à¤¾à¤°à¥à¤¡, à¤µà¥‹à¤Ÿà¤° à¤•à¤¾à¤°à¥à¤¡, à¤ªà¤¾à¤¸à¤ªà¥‹à¤°à¥à¤Ÿ, à¤°à¤¾à¤¶à¤¨ à¤•à¤¾à¤°à¥à¤¡, à¤•à¤‚à¤ªà¥à¤¯à¥‚à¤Ÿà¤° à¤•à¥‹à¤°à¥à¤¸ à¤”à¤° à¤¸à¤­à¥€ à¤¸à¤°à¤•à¤¾à¤°à¥€ à¤‘à¤¨à¤²à¤¾à¤‡à¤¨ à¤¸à¥‡à¤µà¤¾à¤à¤‚à¥¤">
+    <meta name="keywords" content="CSC Center, Ankit CSC, Digital Seva, Aadhar Card, Voter Card, Computer Course, Kurali">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+<style>
+/* ============================================================
+   CSS - ANKIT CSC CENTER
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a1a;
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   PRELOADER / RING ANIMATION
+   ============================================================ */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-ring {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-ring .ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    animation: ringRotate 1.5s linear infinite;
+}
+
+.loader-ring .ring:nth-child(1) {
+    border-top-color: #ffd700;
+    animation-duration: 1.2s;
+}
+
+.loader-ring .ring:nth-child(2) {
+    border-right-color: #00e5ff;
+    animation-duration: 1.5s;
+    animation-direction: reverse;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+}
+
+.loader-ring .ring:nth-child(3) {
+    border-bottom-color: #ff3366;
+    animation-duration: 1.8s;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+}
+
+.loader-ring .center-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: pulse 1.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes ringRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ============================================================
+   ANIMATED BACKGROUND
+   ============================================================ */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-animation .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(0, 229, 255, 0.3);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 26, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 10px 30px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo .logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 18px;
+    color: #0a0a1a;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.nav-logo .logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.nav-links a.whatsapp-btn-nav {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.nav-links a.whatsapp-btn-nav:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    color: #fff;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 30px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(10%, 10%); }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 25px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50px;
+    font-size: 14px;
+    color: #ffd700;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(135deg, #ffd700, #ff8c00, #ff3366);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-subtitle.hindi {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: #ffd700;
+    margin-bottom: 30px;
+}
+
+.hero-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 50px;
+    color: #00e5ff;
+    font-size: 14px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+.btn {
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    color: #0a0a1a;
+    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(255, 215, 0, 0.5);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff;
+    box-shadow: 0 5px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+    border-color: #ffd700;
+    color: #ffd700;
+    transform: translateY(-3px);
+}
+
+.hero-csc-id {
+    margin-top: 35px;
+    display: inline-block;
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 215, 0, 0.3);
+    border-radius: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    animation: fadeInUp 0.8s ease 1s both;
+}
+
+.hero-csc-id strong {
+    color: #ffd700;
+}
+
+/* ============================================================
+   SECTION COMMON STYLES
+   ============================================================ */
+.section {
+    padding: 90px 30px;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 6px 20px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 50px;
+    font-size: 12px;
+    color: #ffd700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.section-title .highlight {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-desc {
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+.section-desc.large {
+    max-width: 800px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   GOVERNMENT LOGOS BAR
+   ============================================================ */
+.govt-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.govt-logos span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.govt-logos .digital-india {
+    font-size: 14px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+.about-info p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.about-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.about-feature i {
+    color: #00e5ff;
+    font-size: 16px;
+}
+
+.about-card {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(0, 229, 255, 0.05));
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 25px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: 'CSC';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255, 215, 0, 0.03);
+}
+
+.about-card .csc-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    color: #ffd700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.about-card .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+}
+
+.about-card .contact-row i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+}
+
+.about-card .contact-row a {
+    color: #00e5ff;
+    text-decoration: none;
+}
+
+.about-card .contact-row a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   SERVICES / CATEGORIES
+   ============================================================ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #ffd700, #ff8c00);
+    transition: width 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.service-card:hover::before {
+    width: 100%;
+    opacity: 0.05;
+}
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-icon.gold { background: rgba(255, 215, 0, 0.15); color: #ffd700; }
+.service-icon.cyan { background: rgba(0, 229, 255, 0.15); color: #00e5ff; }
+.service-icon.pink { background: rgba(255, 51, 102, 0.15); color: #ff3366; }
+.service-icon.green { background: rgba(37, 211, 102, 0.15); color: #25d366; }
+.service-icon.purple { background: rgba(155, 89, 255, 0.15); color: #9b59ff; }
+.service-icon.orange { background: rgba(255, 140, 0, 0.15); color: #ff8c00; }
+.service-icon.red { background: rgba(255, 50, 50, 0.15); color: #ff3232; }
+.service-icon.teal { background: rgba(0, 150, 150, 0.15); color: #009696; }
+
+.service-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   COURSES SECTION
+   ============================================================ */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 35px 28px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.03), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.course-card:hover::after {
+    opacity: 1;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.course-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.course-icon.gold-bg { background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.2)); color: #ffd700; }
+.course-icon.cyan-bg { background: linear-gradient(135deg, rgba(0,229,255,0.2), rgba(0,150,200,0.2)); color: #00e5ff; }
+.course-icon.pink-bg { background: linear-gradient(135deg, rgba(255,51,102,0.2), rgba(200,0,100,0.2)); color: #ff3366; }
+
+.course-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.course-card p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.course-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 50px;
+    font-size: 11px;
+    color: #00e5ff;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-section {
+    background: linear-gradient(180deg, transparent, rgba(255, 215, 0, 0.02));
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-info-card {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(0, 229, 255, 0.03));
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.contact-info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.contact-info-card > p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.contact-item .icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.contact-item .icon.phone-icon { background: rgba(37, 211, 102, 0.15); color: #25d366; }
+.contact-item .icon.email-icon { background: rgba(255, 215, 0, 0.15); color: #ffd700; }
+.contact-item .icon.location-icon { background: rgba(0, 229, 255, 0.15); color: #00e5ff; }
+
+.contact-item .details h4 {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 3px;
+}
+
+.contact-item .details p,
+.contact-item .details a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-item .details a:hover {
+    color: #ffd700;
+}
+
+.contact-whatsapp-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.contact-whatsapp-buttons .btn {
+    justify-content: center;
+}
+
+.location-map {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    height: 100%;
+    min-height: 400px;
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: none;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 30px 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    color: #ffd700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-col ul li a:hover {
+    color: #ffd700;
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+/* ============================================================
+   WHATSAPP FLOATING BUTTON
+   ============================================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    animation: whatsappBounce 2s ease-in-out infinite;
+}
+
+.whatsapp-float a {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float .tooltip {
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    color: #075e54;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 80px;
+}
+
+.whatsapp-float .tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 6px solid #fff;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+@keyframes whatsappBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ============================================================
+   SCROLL TO TOP
+   ============================================================ */
+.scroll-top {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a1a;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100%;
+        background: rgba(10, 10, 26, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 5px;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .hero {
+        padding: 100px 20px 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .govt-logos {
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo .logo-text {
+        font-size: 13px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .about-card {
+        padding: 25px;
+    }
+
+    .contact-info-card {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PRELOADER
+     ============================================================ -->
+<div id="preloader">
+    <div class="loader-ring">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="center-text">CSC</div>
+    </div>
+</div>
+
+<!-- ============================================================
+     ANIMATED BACKGROUND PARTICLES
+     ============================================================ -->
+<div class="bg-animation" id="bgAnimation"></div>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-logo">
+        <div class="logo-icon">AC</div>
+        <div class="logo-text">ANKIT CSC</div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://wa.me/918307046050?text=Hi!%20I%20want%20to%20know%20about%20CSC%20services" target="_blank" class="whatsapp-btn-nav"><i class="fab fa-whatsapp"></i> Contact Now</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-star"></i> Digital India Power To Empower
+        </div>
+        
+        <h1 class="hero-title">
+            <span class="highlight">Ankit</span> CSC Center<br>
+            <span style="font-size: 0.5em; font-family: 'Poppins', sans-serif; display: block; margin-top: 5px;">
+                à¤œà¤¨ à¤¸à¥‡à¤µà¤¾ à¤•à¥‡à¤¨à¥à¤¦à¥à¤°
+            </span>
+        </h1>
+        
+        <p class="hero-subtitle">Common Service Centre | All Government & Digital Services Under One Roof</p>
+        <p class="hero-subtitle hindi">à¤†à¤ªà¤•à¥€ à¤¸à¤­à¥€ à¤¸à¤°à¤•à¤¾à¤°à¥€ à¤”à¤° à¤¡à¤¿à¤œà¤¿à¤Ÿà¤² à¤¸à¥‡à¤µà¤¾à¤à¤‚ à¤à¤• à¤¹à¥€ à¤¸à¥à¤¥à¤¾à¤¨ à¤ªà¤°</p>
+        
+        <div class="hero-tagline">
+            <i class="fas fa-check-circle"></i> CSC ID: <strong>513654670033</strong>
+        </div>
+        
+        <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">
+                <i class="fas fa-th-list"></i> Our Services
+            </a>
+            <a href="https://wa.me/918307046050?text=Hi!%20I%20want%20to%20know%20about%20CSC%20services" target="_blank" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-phone-alt"></i> Contact Us
+            </a>
+        </div>
+        
+        <div class="hero-csc-id">
+            <i class="fas fa-id-card"></i> CSC ID: <strong>513654670033</strong> &nbsp;|&nbsp; 
+            <i class="fas fa-phone"></i> 83070-46050 / 74968-26254
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     GOVERNMENT LOGOS BAR
+     ============================================================ -->
+<div class="section" style="padding-top: 0; padding-bottom: 30px;">
+    <div class="container">
+        <div class="govt-logos">
+            <span class="digital-india">Digital<br>India</span>
+            <span>CSC<br>Common Service Centre</span>
+            <span>à¤œà¤¨ à¤¸à¥‡à¤µà¤¾<br>à¤•à¥‡à¤¨à¥à¤¦à¥à¤°</span>
+            <span>Power To<br>Empower</span>
+            <span>à¤­à¤¾à¤°à¤¤ à¤¸à¤°à¤•à¤¾à¤°<br>Government of India</span>
+            <span>à¤ˆ-à¤—à¤µà¤°à¥à¤¨à¥‡à¤‚à¤¸<br>E-Governance</span>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     ABOUT SECTION
+     ============================================================ -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">About Us</div>
+            <h2 class="section-title">Welcome to <span class="highlight">Ankit CSC Center</span></h2>
+            <p class="section-desc large">Your trusted Common Service Centre providing all government and digital services with professional computer education.</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-info">
+                <h3>à¤œà¤¨ à¤¸à¥‡à¤µà¤¾ à¤•à¥‡à¤¨à¥à¤¦à¥à¤° - à¤†à¤ªà¤•à¥€ à¤¸à¥‡à¤µà¤¾ à¤®à¥‡à¤‚</h3>
+                <p>
+                    Ankit CSC Center is a fully authorized Common Service Centre (CSC) under the 
+                    Digital India initiative by the Government of India. We provide a wide range of 
+                    government and digital services to citizens in Kurali and surrounding areas.
+                </p>
+                <p>
+                    From Aadhaar card services to passport applications, insurance to money transfers, 
+                    and computer education to professional certifications â€” we do it all under one roof.
+                </p>
+                
+                <div class="about-features">
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Govt. Authorized</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Fast Service</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Affordable Rates</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Certified Courses</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Digital India Partner</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> 7 Days Service</div>
+                </div>
+            </div>
+            
+            <div class="about-card">
+                <div class="csc-number">CSC ID: 513654670033</div>
+                
+                <div class="contact-row">
+                    <i class="fas fa-user-tie"></i>
+                    <span><strong>Ankit CSC Center</strong></span>
+                </div>
+                
+                <div class="contact-row">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>
+                        <a href="tel:+918307046050">83070-46050</a> &nbsp;|&nbsp; 
+                        <a href="tel:+917496826254">74968-26254</a>
+                    </span>
+                </div>
+                
+                <div class="contact-row">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>
+                        <a href="https://wa.me/918307046050" target="_blank">83070-46050</a> &nbsp;|&nbsp; 
+                        <a href="https://wa.me/917496826254" target="_blank">74968-26254</a>
+                    </span>
+                </div>
+                
+                <div class="contact-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Durga Mandir Ke Paas, Village Kurali</span>
+                </div>
+                
+                <div class="contact-row">
+                    <i class="fas fa-globe"></i>
+                    <span>Digital India Power To Empower</span>
+                </div>
+                
+                <div class="contact-whatsapp-buttons">
+                    <a href="https://wa.me/918307046050?text=Hi!%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp - 83070-46050
+                    </a>
+                    <a href="https://wa.me/917496826254?text=Hi!%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="btn btn-whatsapp" style="background: linear-gradient(135deg, #128c7e, #075e54);">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp - 74968-26254
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SERVICES / CATEGORIES SECTION
+     ============================================================ -->
+<section class="section" id="services" style="background: linear-gradient(180deg, transparent, rgba(0, 229, 255, 0.02));">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Categories</div>
+            <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+            <p class="section-desc">Complete range of government, financial, and digital services available at our centre</p>
+        </div>
+        
+        <div class="services-grid" id="servicesGrid">
+            <!-- Services will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     COURSES SECTION
+     ============================================================ -->
+<section class="section" id="courses">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Education</div>
+            <h2 class="section-title">Computer <span class="highlight">Courses</span></h2>
+            <p class="section-desc">Professional computer education with government-recognized certificates</p>
+        </div>
+        
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-icon gold-bg"><i class="fas fa-laptop-code"></i></div>
+                <h3>Basic Computer Course</h3>
+                <p>Computer fundamentals, MS Office, internet, typing, and digital literacy. Complete beginner to advanced level training.</p>
+                <span class="course-badge"><i class="fas fa-certificate"></i> Certificate Provided</span>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon cyan-bg"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>Nursery Teacher Training</h3>
+                <p>Professional nursery teacher training program with practical teaching methodology and certification.</p>
+                <span class="course-badge"><i class="fas fa-certificate"></i> Certificate Provided</span>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon pink-bg"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Advanced Computer Courses</h3>
+                <p>Programming, web design, DTP, Tally, and all other computer-related courses with industry-recognized certificates.</p>
+                <span class="course-badge"><i class="fas fa-certificate"></i> Certificate Provided</span>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="color: rgba(255,255,255,0.5); margin-bottom: 20px;">
+                <i class="fas fa-info-circle" style="color: #00e5ff;"></i> 
+                à¤¸à¤­à¥€ à¤•à¥‹à¤°à¥à¤¸ à¤•à¥‡ à¤¸à¤¾à¤¥ CSC à¤•à¤¾ à¤•à¤¾à¤® à¤­à¥€ à¤¸à¤¿à¤–à¤¾à¤¯à¤¾ à¤œà¤¾à¤¤à¤¾ à¤¹à¥ˆà¥¤ à¤ªà¥à¤°à¤®à¤¾à¤£ à¤ªà¤¤à¥à¤° à¤¦à¤¿à¤¯à¤¾ à¤œà¤¾à¤à¤—à¤¾à¥¤
+            </p>
+            <a href="https://wa.me/918307046050?text=Hi!%20I%20want%20to%20enroll%20in%20computer%20course" target="_blank" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Enroll Now on WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+<section class="section contact-section" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Contact</div>
+            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+            <p class="section-desc">Visit our centre or contact us anytime for all your service needs</p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <h3>Contact Details</h3>
+                <p>We're here to help you with all government and digital services</p>
+                
+                <div class="contact-item">
+                    <div class="icon phone-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="details">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+918307046050">83070-46050</a> &nbsp;/&nbsp; <a href="tel:+917496826254">74968-26254</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon email-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="details">
+                        <h4>WhatsApp</h4>
+                        <p>
+                            <a href="https://wa.me/918307046050" target="_blank">83070-46050</a> &nbsp;/&nbsp; 
+                            <a href="https://wa.me/917496826254" target="_blank">74968-26254</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="details">
+                        <h4>Address</h4>
+                        <p>Durga Mandir Ke Paas, Village Kurali</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon" style="background: rgba(255,215,0,0.15); color: #ffd700;"><i class="fas fa-id-card"></i></div>
+                    <div class="details">
+                        <h4>CSC ID</h4>
+                        <p style="font-family: 'Orbitron', sans-serif; color: #ffd700;">513654670033</p>
+                    </div>
+                </div>
+                
+                <div class="contact-whatsapp-buttons">
+                    <a href="https://wa.me/918307046050?text=Hi!%20I%20need%20a%20service" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp - 83070-46050
+                    </a>
+                    <a href="https://wa.me/917496826254?text=Hi!%20I%20need%20a%20service" target="_blank" class="btn btn-whatsapp" style="background: linear-gradient(135deg, #128c7e, #075e54);">
+                        <i class="fab fa-whatsapp"></i> WhatsApp - 74968-26254
+                    </a>
+                </div>
+            </div>
+            
+            <div class="location-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3468.0!2d76.0!3d29.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDAwJzAwLjAiTiA3NsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ankit CSC Center Location - Kurali">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Ankit CSC Center</h4>
+            <p>
+                à¤œà¤¨ à¤¸à¥‡à¤µà¤¾ à¤•à¥‡à¤¨à¥à¤¦à¥à¤° - Your trusted Common Service Centre under the Digital India initiative. 
+                We provide all government services, digital services, and computer education.
+            </p>
+            <p style="margin-top: 10px; color: #ffd700;">
+                <i class="fas fa-check-circle"></i> CSC ID: 513654670033
+            </p>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                <li><a href="#courses"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul>
+                <li><a href="tel:+918307046050"><i class="fas fa-phone"></i> 83070-46050</a></li>
+                <li><a href="tel:+917496826254"><i class="fas fa-phone"></i> 74968-26254</a></li>
+                <li><a href="https://wa.me/918307046050" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: 83070-46050</a></li>
+                <li><a href="https://wa.me/917496826254" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: 74968-26254</a></li>
+                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Durga Mandir Ke Paas, Kurali</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Working Hours</h4>
+            <ul>
+                <li><a href="#"><i class="fas fa-calendar-day"></i> Mon - Sat: 9:00 AM - 7:00 PM</a></li>
+                <li><a href="#"><i class="fas fa-calendar-day"></i> Sunday: 10:00 AM - 4:00 PM</a></li>
+                <li><a href="#"><i class="fas fa-clock"></i> Fast & Reliable Service</a></li>
+                <li><a href="#"><i class="fas fa-certificate"></i> Govt. Authorized Centre</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ankit CSC Center | CSC ID: 513654670033 | à¤œà¤¨ à¤¸à¥‡à¤µà¤¾ à¤•à¥‡à¤¨à¥à¤¦à¥à¤° | Digital India Power To Empower</p>
+        <p style="margin-top: 5px; color: rgba(255,255,255,0.15);">Designed with <i class="fas fa-heart" style="color: #ff3366;"></i> for Digital India</p>
+    </div>
+</footer>
+
+<!-- ============================================================
+     WHATSAPP FLOATING BUTTON
+     ============================================================ -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/918307046050?text=Hi!%20I%20need%20help%20with%20CSC%20services" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="tooltip">Chat with us!</div>
+</div>
+
+<!-- ============================================================
+     SCROLL TO TOP BUTTON
+     ============================================================ -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ============================================================
+// SERVICES DATA
+// ============================================================
+const servicesData = [
+    // Government Services
+    { icon: 'fa-id-card', color: 'gold', name: 'à¤†à¤§à¤¾à¤° à¤•à¤¾à¤°à¥à¤¡', desc: 'Aadhaar Card - New, Update, Correction, Print' },
+    { icon: 'fa-check-circle', color: 'gold', name: 'à¤µà¥‹à¤Ÿà¤° à¤•à¤¾à¤°à¥à¤¡', desc: 'Voter ID - New Registration, Correction, EPIC' },
+    { icon: 'fa-passport', color: 'cyan', name: 'à¤ªà¤¾à¤¸à¤ªà¥‹à¤°à¥à¤Ÿ à¤¸à¥‡à¤µà¤¾', desc: 'Passport Service - New Application & Renewal' },
+    { icon: 'fa-credit-card', color: 'gold', name: 'à¤°à¤¾à¤¶à¤¨ à¤•à¤¾à¤°à¥à¤¡', desc: 'Ration Card - New, Update, Add Member' },
+    { icon: 'fa-car', color: 'cyan', name: 'à¤¡à¥à¤°à¤¾à¤ˆà¤µà¤¿à¤‚à¤— à¤²à¤¾à¤‡à¤¸à¥ˆà¤‚à¤¸', desc: 'Driving License - New, Renewal, DL Print' },
+    { icon: 'fa-award', color: 'pink', name: 'à¤ªà¥ˆà¤¨ à¤•à¤¾à¤°à¥à¤¡', desc: 'PAN Card - New Application & Correction' },
+    { icon: 'fa-birthday-cake', color: 'purple', name: 'à¤œà¤¨à¥à¤®-à¤®à¥ƒà¤¤à¥à¤¯à¥ à¤ªà¥à¤°à¤®à¤¾à¤£', desc: 'Birth & Death Certificate' },
+    { icon: 'fa-file-alt', color: 'orange', name: 'à¤†à¤¯à¥à¤·à¥à¤®à¤¾à¤¨ à¤•à¤¾à¤°à¥à¤¡', desc: 'Ayushman Card - PM-JAY Health Scheme' },
+    
+    // Financial Services
+    { icon: 'fa-exchange-alt', color: 'green', name: 'à¤®à¤¨à¥€ à¤Ÿà¥à¤°à¤¾à¤‚à¤¸à¤«à¤°', desc: 'Money Transfer - All Banks, IMPS, NEFT' },
+    { icon: 'fa-hand-holding-usd', color: 'green', name: 'à¤²à¥‹à¤¨ à¤¸à¥‡à¤µà¤¾', desc: 'Two Wheeler / Personal / Group Loan for Women' },
+    { icon: 'fa-file-invoice', color: 'teal', name: 'LIC / à¤¬à¤¿à¤œà¤²à¥€ / à¤ªà¤¾à¤¨à¥€', desc: 'LIC Premium, Electricity Bill, Water Bill, House Tax' },
+    { icon: 'fa-receipt', color: 'teal', name: 'à¤¬à¥€à¤œ à¤…à¤¨à¥à¤¦à¤¾à¤¨', desc: 'Beej Anudaan - Seed Subsidy for Farmers' },
+    
+    // Insurance
+    { icon: 'fa-shield-alt', color: 'red', name: 'BIKE/CAR INSURANCE', desc: 'Two Wheeler & Four Wheeler Insurance' },
+    { icon: 'fa-umbrella', color: 'pink', name: 'à¤«à¤¸à¤² à¤¬à¥€à¤®à¤¾', desc: 'Crop Insurance - Fasal Bima Yojana' },
+    
+    // Digital Services
+    { icon: 'fa-mobile-alt', color: 'cyan', name: 'à¤®à¥‹à¤¬à¤¾à¤ˆà¤² à¤°à¤¿à¤šà¤¾à¤°à¥à¤œ', desc: 'Mobile Recharge, DTH, FastTag, Bill Payment' },
+    { icon: 'fa-train', color: 'gold', name: 'à¤°à¥‡à¤²/à¤¹à¤µà¤¾à¤ˆ à¤Ÿà¤¿à¤•à¤Ÿ', desc: 'Railway & Air Ticket Booking' },
+    { icon: 'fa-file-signature', color: 'purple', name: 'à¤‘à¤¨à¤²à¤¾à¤‡à¤¨ à¤†à¤µà¥‡à¤¦à¤¨', desc: 'Online Application for All Government Schemes' },
+    { icon: 'fa-file-invoice', color: 'orange', name: 'à¤‘à¤¨à¤²à¤¾à¤‡à¤¨ à¤°à¤¸à¥€à¤¦', desc: 'Online Receipt & Payment Gateway' },
+    
+    // Certificates
+    { icon: 'fa-file-contract', color: 'teal', name: 'à¤œà¤¾à¤¤à¤¿ à¤ªà¥à¤°à¤®à¤¾à¤£ à¤ªà¤¤à¥à¤°', desc: 'SC/BC/OBC Certificate' },
+    { icon: 'fa-file-contract', color: 'gold', name: 'à¤†à¤¯ à¤ªà¥à¤°à¤®à¤¾à¤£ à¤ªà¤¤à¥à¤°', desc: 'Income Certificate' },
+    { icon: 'fa-file-contract', color: 'cyan', name: 'à¤¨à¤¿à¤µà¤¾à¤¸ à¤ªà¥à¤°à¤®à¤¾à¤£ à¤ªà¤¤à¥à¤°', desc: 'Haryana Residence Certificate' },
+    { icon: 'fa-file-contract', color: 'pink', name: 'à¤ªà¤°à¤¿à¤µà¤¾à¤° à¤ªà¤¹à¤šà¤¾à¤¨ à¤ªà¤¤à¥à¤°', desc: 'Parivar Pehchan Patra (PPP)' },
+    
+    // Pension & Schemes
+    { icon: 'fa-hand-holding-heart', color: 'pink', name: 'à¤µà¥ƒà¤¦à¥à¤§à¤¾ à¤ªà¥‡à¤‚à¤¶à¤¨', desc: 'Old Age Pension Scheme' },
+    { icon: 'fa-female', color: 'purple', name: 'à¤²à¤¾à¤¡à¤²à¥€ à¤¯à¥‹à¤œà¤¨à¤¾', desc: 'Ladli Scheme Registration' },
+    { icon: 'fa-ring', color: 'gold', name: 'à¤µà¤¿à¤µà¤¾à¤¹ à¤¶à¤—à¥à¤¨ à¤¯à¥‹à¤œà¤¨à¤¾', desc: 'Mukhyamantri Vivah Shagun Yojana' },
+    { icon: 'fa-tractor', color: 'green', name: 'PM-KISAN', desc: 'PM Kisan Samman Nidhi Yojana' },
+    { icon: 'fa-hands-helping', color: 'orange', name: 'à¤¸à¤•à¥à¤·à¤® à¤¯à¥‹à¤œà¤¨à¤¾', desc: 'Saksham Yojana Registration' },
+    { icon: 'fa-briefcase', color: 'cyan', name: 'à¤°à¥‹à¤œà¤—à¤¾à¤° à¤ªà¤‚à¤œà¥€à¤•à¤°à¤£', desc: 'Employment Office Registration' },
+    
+    // More Services
+    { icon: 'fa-life-ring', color: 'teal', name: 'à¤œà¥€à¤µà¤¨ à¤ªà¥à¤°à¤®à¤¾à¤£ à¤ªà¤¤à¥à¤°', desc: 'Jeevan Pramaan - Life Certificate' },
+    { icon: 'fa-bolt', color: 'gold', name: 'à¤¬à¤¿à¤œà¤²à¥€ à¤•à¤¨à¥‡à¤•à¥à¤¶à¤¨', desc: 'New Electricity Connection' },
+    { icon: 'fa-file-medical', color: 'red', name: 'PF/ESI SERVICE', desc: 'PF & ESI Services' },
+    { icon: 'fa-ticket-alt', color: 'purple', name: 'ADMIT CARD', desc: 'Admit Card Download & Print' },
+    { icon: 'fa-shield', color: 'green', name: 'ONLINE FIR', desc: 'Online FIR & Police Verification' },
+    { icon: 'fa-id-badge', color: 'orange', name: 'à¤®à¤œà¤¦à¥‚à¤° à¤•à¤¾à¤°à¥à¤¡', desc: 'Mazdoor Card - Labour Card Registration' },
+    
+    // Added Services
+    { icon: 'fa-camera', color: 'cyan', name: 'à¤«à¥‹à¤Ÿà¥‹ à¤«à¥à¤°à¥‡à¤®', desc: 'Photo Frame & Birthday Gift Making' },
+    { icon: 'fa-gem', color: 'pink', name: 'à¤¬à¤°à¥à¤¥-à¤¡à¥‡ à¤—à¤¿à¤«à¥à¤Ÿ', desc: 'Custom Birthday Gifts & Personalised Items' },
+    { icon: 'fa-file-alt', color: 'gold', name: 'à¤¦à¤¾à¤–à¤¿à¤² à¤–à¤¾à¤°à¤¿à¤œ', desc: 'Daakhil Khaarij - Land Registry Services' },
+    { icon: 'fa-file-invoice', color: 'teal', name: 'à¤°à¤¿à¤œà¥à¤¯à¥‚à¤®à¥‡', desc: 'Resume Making & Professional CV' },
+    { icon: 'fa-heart', color: 'pink', name: 'à¤®à¥ˆà¤°à¤¿à¤œ à¤¸à¤°à¥à¤Ÿà¤¿à¤«à¤¿à¤•à¥‡à¤Ÿ', desc: 'Marriage Certificate Registration' },
+    { icon: 'fa-passport', color: 'cyan', name: 'ALL FARM', desc: 'All Type Online Farm Services' },
+];
+
+// ============================================================
+// RENDER SERVICES
+// ============================================================
+function renderServices() {
+    const grid = document.getElementById('servicesGrid');
+    let html = '';
+    servicesData.forEach(service => {
+        html += `
+            <div class="service-card">
+                <div class="service-icon ${service.color}">
+                    <i class="fas ${service.icon}"></i>
+                </div>
+                <h3>${service.name}</h3>
+                <p>${service.desc}</p>
+            </div>
+        `;
+    });
+    grid.innerHTML = html;
+}
+
+// ============================================================
+// BACKGROUND PARTICLES
+// ============================================================
+function createParticles() {
+    const container = document.getElementById('bgAnimation');
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = (Math.random() * 4 + 2) + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
+        particle.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(particle);
+    }
+}
+
+// ============================================================
+// PRELOADER
+// ============================================================
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('preloader').classList.add('hide');
+    }, 2000);
+});
+
+// ============================================================
+// NAVBAR SCROLL EFFECT
+// ============================================================
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+
+    // Scroll to top button
+    const scrollTop = document.getElementById('scrollTop');
+    if (window.scrollY > 300) {
+        scrollTop.classList.add('show');
+    } else {
+        scrollTop.classList.remove('show');
+    }
+});
+
+// ============================================================
+// HAMBURGER MENU
+// ============================================================
+document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementById('navLinks').classList.toggle('active');
+});
+
+// Close menu when link clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('active');
+    });
+});
+
+// ============================================================
+// SCROLL ANIMATIONS (Intersection Observer)
+// ============================================================
+const animateElements = document.querySelectorAll('.service-card, .course-card, .about-feature, .contact-item');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+animateElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    renderServices();
+    createParticles();
+});
+</script>
+
+</body>
+</html>
